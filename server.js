@@ -8,7 +8,12 @@ const init = async () => {
     // Initiate server
     const server = Hapi.server({
         port: process.env.DB_PORT || 3000,
-        host: 'localhost' || "0.0.0.0"
+        host: "localhost",
+        routes: {
+            cors: {
+                origin: ['*']
+            }
+        }
     });
 
     // Connect to MongoDB
